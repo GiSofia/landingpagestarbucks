@@ -1,0 +1,357 @@
+/*===== HEADER =====*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+/*===== VARIABLES CSS =====*/
+:root{
+    --header-height: 3rem;
+
+    /*===== Colors =====*/
+    --fist-color: #F4E9D9;
+    --brown-color: #7A5E45;
+    --green-color: #017143;
+    --white-color: #FCF8F8;
+
+    /*===== Font and typography =====*/
+    --body-font: 'Roboto', sans-serif;
+    --big-font-size: 2.5rem;
+    --normal-font-size: .938rem;
+
+    /*===== z index =====*/
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+    :root{
+        --big-font-size: 3rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-weight: 500;
+}
+
+h1,p,ul{
+    margin: 0;
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/*===== LAYOUT =====*/
+.bd-grid{
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--fist-color);
+}
+
+/*===== NAV =====*/
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-menu{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        padding: 3.5rem 1.5rem 0;
+        background: rgba(255,255,255,.3);
+        backdrop-filter: blur(10px);
+        transition: .5s;
+    }
+}
+
+.nav-logo{
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.nav-logo img{
+    width: 2.5rem;
+}
+
+.nav-close{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-item{
+    margin-bottom: 2rem;
+}
+
+.nav-close, .nav-link, .nav-logo, .nav-toggle{
+    color: var(--green-color);
+}
+
+.nav-link:hover{
+    color: var(--brown-color);
+}
+
+.nav-toggle{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/*=== Show menu ===*/
+.show{
+    right: 0;
+}
+
+/*===== HOME MENU =====*/
+.menu{
+    background-color: var(--fist-color);
+    overflow: hidden;
+}
+
+.menu-container{
+    height: calc(100vh - var(--header-height));
+    grid-template-rows: repeat(3, max-content);
+    row-gap: 1.5rem;
+}
+
+.menu-img{
+    position: relative;
+    padding-top: 1.5rem;
+    justify-self: center;
+    width: 300px;
+    height: 233px;
+    animation: float-img 4s ease-in-out infinite;
+}
+
+.menu-img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.menu-data{
+    color: var(--green-color);
+}
+
+.name{
+    margin-top: 2rem;
+    font-weight: 700;
+}
+
+.menu-title{
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.menu-description{
+    margin-bottom: 2.5rem;
+}
+
+.menu-button{
+    display: inline-block;
+    color: var(--white-color);
+    background-color: var(--green-color);
+    padding: 1.125rem 2rem;
+    border-radius: .5rem;
+}
+
+.menu-button:hover{
+    background-color: var(--brown-color);
+}
+
+.menu-social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.menu-social-media a{
+    color: var(--green-color);
+    padding: .75rem;
+}
+
+.menu-social-media a:hover{
+    color: var(--brown-color);
+}
+
+.shop-items{
+    color: var(--green-color);
+    cursor: pointer;
+}
+
+.shop-items span, i{
+    padding: .25rem;
+}
+
+.shop-items i{
+    font-size: 1.2rem;
+}
+
+@keyframes float-img{
+    0%{
+        transform: translateY(0) rotate(15deg);
+    }
+
+    50%{
+        transform: translateY(-1rem) rotate(15deg);
+    }
+
+    100%{
+        transform: translateY(0) rotate(15deg);
+    }
+}
+
+/* ===== MEDIA QUERIES =====*/
+@media screen and (min-width: 768px) {
+    body{
+        margin: 0;
+    }
+
+    .nav{
+        height: calc(var(--header-height) + 1.5rem);
+        justify-content: flex-start;
+    }
+
+    .nav-logo img{
+        width: 3rem;
+    }
+
+    #nav_link{
+        background-color: var(--green-color);
+        color: var(--white-color);
+        padding: 1.125rem 2rem;
+        border-radius: .5rem;
+    }
+
+    #nav_link:hover{
+        background-color: var(--brown-color);
+    }
+
+    .nav-toggle, .nav-close{
+        display: none;
+    }
+
+    .nav-list{
+        display: flex;
+    }
+
+    .nav-item{
+        margin-left: 3rem;
+        margin-bottom: 0;
+    }
+
+    .menu-container{
+        height: 100vh;
+        grid-template-columns: repeat(3, max-content);
+        grid-template-rows: 1fr;
+        row-gap: 0;
+        align-items: center;
+        justify-content: center;
+        margin-left: 3.5rem;
+        margin-right: 3.5rem;
+    }
+
+    .menu-img{
+        order: 1;
+        width: 330px;
+        height: 320px;
+    }
+
+    .menu-img img{
+        width: 375px;
+    }
+
+    .menu-social-media{
+        order: 1;
+        flex-direction: column;
+        margin-left: -6rem;
+    }
+
+    .shop-items{
+        position: absolute;
+        margin-left: 38rem;
+        margin-top: -1rem;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .menu-social-media{
+        margin-left: -4rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {  
+    .bd-grid{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav{
+        height: calc(var(--header-height) + 2rem);
+    }
+
+    .menu-container{
+        justify-content: initial;
+        column-gap: 4.5rem;
+    }
+
+    .menu-img{
+        width: 450px;
+        height: 420px;
+    }
+
+    .menu-img img{
+        width: 450px;
+    }
+
+    .menu-social-media{
+        margin-left: -2rem;
+    }
+
+    .shop-items{
+        position: absolute;
+        margin-left: 40rem;
+        margin-top: -1rem;
+    }
+}
