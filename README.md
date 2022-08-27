@@ -23,6 +23,7 @@ This starbucks landing page was inspired by the design of Aleksandra (profile ci
 ![](/assets/img/screenshot_desktop.png)
 
 - Mobile:
+
 ![](/assets/img/screenshot_mobile.png)
 
 ### Links
